@@ -17,6 +17,8 @@ public:
 
 private slots:
     void setNumber();
+    void setOperation();
+    void findResult();
 
 private:
     Ui::MainWindow *ui;
