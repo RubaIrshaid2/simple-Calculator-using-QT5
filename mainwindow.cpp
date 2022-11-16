@@ -4,9 +4,10 @@
 #include <QDebug>
 using namespace std;
 
-long long result = 0 ;
+double result = 0 ;
 long long first = 0  , second = 0 ;
 QString operationChecked ;
+bool minus = false ;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -34,7 +35,6 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->pushButton_div , SIGNAL(clicked()) , this , SLOT(setOperation()));
     connect(ui->pushButton_mul , SIGNAL(clicked()) , this , SLOT(setOperation()));
 
-
     //equal
 
     connect(ui->pushButton_equal , SIGNAL(clicked()) , this , SLOT(findResult()));
@@ -42,6 +42,19 @@ MainWindow::MainWindow(QWidget *parent)
     //clear
 
     connect(ui->pushButton_clear , SIGNAL(clicked()) , this , SLOT(clearScreen()));
+    connect(ui->pushButton_clear2 , SIGNAL(clicked()) , this , SLOT(clearScreen()));
+
+    //negative / positive sign
+
+    connect(ui->pushButton_negORpos , SIGNAL(clicked()) , this , SLOT(changeSign()));
+
+    // 1/x
+
+    connect(ui->pushButton_1overX , SIGNAL(clicked()) , this , SLOT(oneOverX()));
+
+    // x*x
+
+    connect(ui->pushButton_square , SIGNAL(clicked()) , this , SLOT(squareX()));
 }
 
 void MainWindow::setNumber()
@@ -83,6 +96,24 @@ void MainWindow::clearScreen()
     ui->result_screen->setText("0.0");
     first = second = result = 0 ;
     operationChecked = "";
+}
+
+void MainWindow::changeSign()
+{
+    result*=-1;
+    ui->result_screen->setText(QString::number(result));
+}
+
+void MainWindow::oneOverX()
+{
+    result = 1.0000/result;
+    ui->result_screen->setText(QString::number(result));
+}
+
+void MainWindow::squareX()
+{
+    result *= result ;
+    ui->result_screen->setText(QString::number(result));
 }
 MainWindow::~MainWindow()
 {

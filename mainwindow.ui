@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>423</width>
+    <width>401</width>
     <height>653</height>
    </rect>
   </property>
@@ -38,7 +38,7 @@ background: black;
      <rect>
       <x>10</x>
       <y>50</y>
-      <width>391</width>
+      <width>381</width>
       <height>101</height>
      </rect>
     </property>
@@ -67,7 +67,7 @@ font: 34pt &quot;Segoe UI&quot;;</string>
    <widget class="QPushButton" name="pushButton_25">
     <property name="geometry">
      <rect>
-      <x>380</x>
+      <x>360</x>
       <y>10</y>
       <width>31</width>
       <height>31</height>
@@ -213,7 +213,7 @@ font: 34pt &quot;Segoe UI&quot;;</string>
       </widget>
      </item>
      <item row="0" column="1">
-      <widget class="QPushButton" name="pushButton_kkk">
+      <widget class="QPushButton" name="pushButton_clear2">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -462,7 +462,7 @@ font: 34pt &quot;Segoe UI&quot;;</string>
       </widget>
      </item>
      <item row="1" column="0">
-      <widget class="QPushButton" name="pushButton_1OverX">
+      <widget class="QPushButton" name="pushButton_1overX">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -500,7 +500,7 @@ font: 34pt &quot;Segoe UI&quot;;</string>
      <rect>
       <x>10</x>
       <y>10</y>
-      <width>41</width>
+      <width>31</width>
       <height>31</height>
      </rect>
     </property>
@@ -514,7 +514,7 @@ font: 34pt &quot;Segoe UI&quot;;</string>
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>60</x>
+      <x>50</x>
       <y>10</y>
       <width>111</width>
       <height>31</height>

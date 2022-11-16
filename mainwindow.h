@@ -20,6 +20,9 @@ private slots:
     void setOperation();
     void findResult();
     void clearScreen();
+    void changeSign();
+    void oneOverX();
+    void squareX();
 
 private:
     Ui::MainWindow *ui;
