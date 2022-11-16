@@ -7,14 +7,15 @@
     <x>0</x>
     <y>0</y>
     <width>423</width>
-    <height>736</height>
+    <height>653</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">QPushButton
+   <string notr="true">
+QPushButton
 {
 	font: 13pt &quot;Segoe UI&quot;;
 	border-radius: 7px ; 
@@ -26,25 +27,35 @@
 	font: 19pt &quot;Segoe UI&quot;;
 	background: rgb(109, 109, 109);
 }
+border: 1px solid black;	
+background: black;
+
 </string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="result_screen">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>130</y>
+      <y>50</y>
       <width>391</width>
       <height>101</height>
      </rect>
     </property>
     <property name="font">
      <font>
-      <pointsize>20</pointsize>
+      <family>Segoe UI</family>
+      <pointsize>34</pointsize>
+      <italic>false</italic>
+      <bold>false</bold>
      </font>
     </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;
+font: 34pt &quot;Segoe UI&quot;;</string>
+    </property>
     <property name="text">
-     <string>0</string>
+     <string>0.0</string>
     </property>
     <property name="alignment">
      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
@@ -53,13 +64,30 @@
      <number>-1</number>
     </property>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QPushButton" name="pushButton_25">
+    <property name="geometry">
+     <rect>
+      <x>380</x>
+      <y>10</y>
+      <width>31</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/images/icons8-history-48.png);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>240</y>
-      <width>401</width>
-      <height>441</height>
+      <y>160</y>
+      <width>383</width>
+      <height>457</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -69,6 +97,89 @@
      <property name="verticalSpacing">
       <number>0</number>
      </property>
+     <item row="2" column="0">
+      <widget class="QPushButton" name="pushButton_7">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>7</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>number</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="3">
+      <widget class="QPushButton" name="pushButton_mult">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(80, 80, 80)</string>
+       </property>
+       <property name="text">
+        <string>X</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="0">
+      <widget class="QPushButton" name="pushButton_1">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true"/>
+       </property>
+       <property name="text">
+        <string>1</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>number</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="0">
+      <widget class="QPushButton" name="pushButton_4">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>4</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>number</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="0">
+      <widget class="QPushButton" name="pushButton_negORpos">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>+/-</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>number</string>
+       </property>
+      </widget>
+     </item>
      <item row="0" column="2">
       <widget class="QPushButton" name="pushButton_21">
        <property name="minimumSize">
@@ -85,24 +196,8 @@
        </property>
       </widget>
      </item>
-     <item row="0" column="1">
-      <widget class="QPushButton" name="pushButton_23">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:rgb(80, 80, 80)</string>
-       </property>
-       <property name="text">
-        <string>CE</string>
-       </property>
-      </widget>
-     </item>
      <item row="1" column="1">
-      <widget class="QPushButton" name="pushButton_19">
+      <widget class="QPushButton" name="pushButton_square">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -117,24 +212,8 @@
        </property>
       </widget>
      </item>
-     <item row="2" column="0">
-      <widget class="QPushButton" name="pushButton">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>7</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>number</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="0">
-      <widget class="QPushButton" name="pushButton_22">
+     <item row="0" column="1">
+      <widget class="QPushButton" name="pushButton_clear">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -145,63 +224,12 @@
         <string notr="true">background:rgb(80, 80, 80)</string>
        </property>
        <property name="text">
-        <string>%</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="2">
-      <widget class="QPushButton" name="pushButton_5">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>6</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>number</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="3">
-      <widget class="QPushButton" name="pushButton_20">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:rgb(80, 80, 80)</string>
-       </property>
-       <property name="text">
-        <string>/</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="2">
-      <widget class="QPushButton" name="pushButton_13">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">font: 700 11pt &quot;Segoe UI&quot;;</string>
-       </property>
-       <property name="text">
-        <string>.</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>number</string>
+        <string>CE</string>
        </property>
       </widget>
      </item>
      <item row="4" column="1">
-      <widget class="QPushButton" name="pushButton_11">
+      <widget class="QPushButton" name="pushButton_2">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -216,8 +244,8 @@
        </property>
       </widget>
      </item>
-     <item row="3" column="3">
-      <widget class="QPushButton" name="pushButton_8">
+     <item row="0" column="3">
+      <widget class="QPushButton" name="pushButton_24">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -228,12 +256,12 @@
         <string notr="true">background:rgb(80, 80, 80)</string>
        </property>
        <property name="text">
-        <string>-</string>
+        <string>--</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="3">
-      <widget class="QPushButton" name="pushButton_16">
+     <item row="1" column="3">
+      <widget class="QPushButton" name="pushButton_div">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -241,15 +269,15 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background: rgb(210, 137, 255)</string>
+        <string notr="true">background:rgb(80, 80, 80)</string>
        </property>
        <property name="text">
-        <string>=</string>
+        <string>/</string>
        </property>
       </widget>
      </item>
-     <item row="5" column="1">
-      <widget class="QPushButton" name="pushButton_15">
+     <item row="3" column="1">
+      <widget class="QPushButton" name="pushButton_5">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -257,7 +285,7 @@
         </size>
        </property>
        <property name="text">
-        <string>0</string>
+        <string>5</string>
        </property>
        <property name="class" stdset="0">
         <string>number</string>
@@ -265,7 +293,7 @@
       </widget>
      </item>
      <item row="4" column="2">
-      <widget class="QPushButton" name="pushButton_9">
+      <widget class="QPushButton" name="pushButton_3">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -280,54 +308,6 @@
        </property>
        <property name="text">
         <string>3</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>number</string>
-       </property>
-      </widget>
-     </item>
-     <item row="4" column="3">
-      <widget class="QPushButton" name="pushButton_12">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:rgb(80, 80, 80)</string>
-       </property>
-       <property name="text">
-        <string>+</string>
-       </property>
-      </widget>
-     </item>
-     <item row="1" column="0">
-      <widget class="QPushButton" name="pushButton_18">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:rgb(80, 80, 80)</string>
-       </property>
-       <property name="text">
-        <string>1/x</string>
-       </property>
-      </widget>
-     </item>
-     <item row="5" column="0">
-      <widget class="QPushButton" name="pushButton_14">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>+/-</string>
        </property>
        <property name="class" stdset="0">
         <string>number</string>
@@ -350,107 +330,8 @@
        </property>
       </widget>
      </item>
-     <item row="4" column="0">
-      <widget class="QPushButton" name="pushButton_10">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true"/>
-       </property>
-       <property name="text">
-        <string>1</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>number</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="0">
-      <widget class="QPushButton" name="pushButton_6">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>4</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>number</string>
-       </property>
-      </widget>
-     </item>
-     <item row="3" column="1">
-      <widget class="QPushButton" name="pushButton_7">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>5</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>number</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="3">
-      <widget class="QPushButton" name="pushButton_4">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:rgb(80, 80, 80)</string>
-       </property>
-       <property name="text">
-        <string>X</string>
-       </property>
-      </widget>
-     </item>
-     <item row="0" column="3">
-      <widget class="QPushButton" name="pushButton_24">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="styleSheet">
-        <string notr="true">background:rgb(80, 80, 80)</string>
-       </property>
-       <property name="text">
-        <string>--</string>
-       </property>
-      </widget>
-     </item>
-     <item row="2" column="1">
-      <widget class="QPushButton" name="pushButton_2">
-       <property name="minimumSize">
-        <size>
-         <width>90</width>
-         <height>70</height>
-        </size>
-       </property>
-       <property name="text">
-        <string>8</string>
-       </property>
-       <property name="class" stdset="0">
-        <string>number</string>
-       </property>
-      </widget>
-     </item>
      <item row="2" column="2">
-      <widget class="QPushButton" name="pushButton_3">
+      <widget class="QPushButton" name="pushButton_9">
        <property name="minimumSize">
         <size>
          <width>90</width>
@@ -465,18 +346,193 @@
        </property>
       </widget>
      </item>
+     <item row="3" column="2">
+      <widget class="QPushButton" name="pushButton_6">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>6</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>number</string>
+       </property>
+      </widget>
+     </item>
+     <item row="4" column="3">
+      <widget class="QPushButton" name="pushButton_add">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(80, 80, 80)</string>
+       </property>
+       <property name="text">
+        <string>+</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="2">
+      <widget class="QPushButton" name="pushButton_dot">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">font: 700 11pt &quot;Segoe UI&quot;;</string>
+       </property>
+       <property name="text">
+        <string>.</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>number</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="1">
+      <widget class="QPushButton" name="pushButton_0">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>0</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>number</string>
+       </property>
+      </widget>
+     </item>
+     <item row="3" column="3">
+      <widget class="QPushButton" name="pushButton_sub">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(80, 80, 80)</string>
+       </property>
+       <property name="text">
+        <string>-</string>
+       </property>
+      </widget>
+     </item>
+     <item row="2" column="1">
+      <widget class="QPushButton" name="pushButton_8">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>8</string>
+       </property>
+       <property name="class" stdset="0">
+        <string>number</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="0">
+      <widget class="QPushButton" name="pushButton_per">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(80, 80, 80)</string>
+       </property>
+       <property name="text">
+        <string>%</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QPushButton" name="pushButton_1OverX">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background:rgb(80, 80, 80)</string>
+       </property>
+       <property name="text">
+        <string>1/x</string>
+       </property>
+      </widget>
+     </item>
+     <item row="5" column="3">
+      <widget class="QPushButton" name="pushButton_equal">
+       <property name="minimumSize">
+        <size>
+         <width>90</width>
+         <height>70</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background: rgb(210, 137, 255)</string>
+       </property>
+       <property name="text">
+        <string>=</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>423</width>
-     <height>26</height>
-    </rect>
-   </property>
+   <widget class="QPushButton" name="pushButton_26">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>41</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">border-image: url(:/images/icons8-menu-rounded-50.png)</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>10</y>
+      <width>111</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>13</pointsize>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white; </string>
+    </property>
+    <property name="text">
+     <string>Standard</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
