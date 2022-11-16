@@ -38,6 +38,10 @@ MainWindow::MainWindow(QWidget *parent)
     //equal
 
     connect(ui->pushButton_equal , SIGNAL(clicked()) , this , SLOT(findResult()));
+
+    //clear
+
+    connect(ui->pushButton_clear , SIGNAL(clicked()) , this , SLOT(clearScreen()));
 }
 
 void MainWindow::setNumber()
@@ -60,7 +64,7 @@ void MainWindow::setOperation()
 
 void MainWindow::findResult()
 {
-    long long finalAnswer;
+    double finalAnswer;
 
     second = result ;
     if(operationChecked=="+")
@@ -70,10 +74,15 @@ void MainWindow::findResult()
     else if (operationChecked == "X")
         finalAnswer = first * second ;
     else
-        finalAnswer = first / second ;
+        finalAnswer = first * 1.00 / second ;
     ui->result_screen->setText(QString::number(finalAnswer));
-    cout<<first<<" "<<second <<" = "<<finalAnswer<<endl;
-    qDebug() <<operationChecked;
+}
+
+void MainWindow::clearScreen()
+{
+    ui->result_screen->setText("0.0");
+    first = second = result = 0 ;
+    operationChecked = "";
 }
 MainWindow::~MainWindow()
 {

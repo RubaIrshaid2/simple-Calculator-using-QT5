@@ -19,6 +19,7 @@ private slots:
     void setNumber();
     void setOperation();
     void findResult();
+    void clearScreen();
 
 private:
     Ui::MainWindow *ui;
