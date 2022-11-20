@@ -26,6 +26,7 @@ private slots:
     void squareRoot();
     void deleteDigit();
     void addDot();
+    void binaryRep();
 
 private:
     Ui::MainWindow *ui;

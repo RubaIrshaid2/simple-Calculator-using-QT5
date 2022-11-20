@@ -72,6 +72,10 @@ MainWindow::MainWindow(QWidget *parent)
     //dot
 
     connect(ui->pushButton_dot , SIGNAL(clicked()) , this , SLOT(addDot()));
+
+    //binary
+
+    connect(ui->pushButton_binary , SIGNAL(clicked()) , this , SLOT(binaryRep()));
 }
 
 void MainWindow::setNumber()
@@ -167,6 +171,11 @@ void MainWindow::addDot()
     {
         ui->result_screen->setText(ui->result_screen->text()+".");
     }
+}
+
+void MainWindow::binaryRep()
+{
+    ui->label_3->setText(QString::number(ui->result_screen->text().toInt(),2));
 }
 MainWindow::~MainWindow()
 {
