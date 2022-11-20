@@ -6,8 +6,7 @@ using namespace std;
 
 double first = 0  , second = 0 ;
 QString operationChecked ;
-bool minus = false ;
-bool b = false ;
+bool boolDot = false ;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -69,6 +68,10 @@ MainWindow::MainWindow(QWidget *parent)
     // delete
 
     connect(ui->pushButton_delete , SIGNAL(clicked()) , this , SLOT(deleteDigit()));
+
+    //dot
+
+    connect(ui->pushButton_dot , SIGNAL(clicked()) , this , SLOT(addDot()));
 }
 
 void MainWindow::setNumber()
@@ -84,7 +87,7 @@ void MainWindow::setNumber()
 
 void MainWindow::setOperation()
 {
-    first = ui->result_screen->text().toInt();
+    first = ui->result_screen->text().toDouble();
     QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
     operationChecked = buttonSender->text();
     ui->result_screen->setText("");
@@ -94,7 +97,7 @@ void MainWindow::findResult()
 {
     double finalAnswer;
 
-    second = ui->result_screen->text().toInt() ;
+    second = ui->result_screen->text().toDouble() ;
     if(operationChecked=="+")
         finalAnswer = first + second;
     else if (operationChecked == "-")
@@ -103,6 +106,7 @@ void MainWindow::findResult()
         finalAnswer = first * second ;
     else
         finalAnswer = first * 1.00 / second ;
+    cout<<first<<" "<<second<<endl;
     ui->result_screen->setText(QString::number(finalAnswer));
 
 //    ui->treeView->setHidden(b);
@@ -148,8 +152,21 @@ void MainWindow::deleteDigit()
     result.chop(1);
     QString isDot = result.right(1);
     if(isDot==".")
+    {
         result.chop(1);
+        boolDot = false ;
+    }
+    if(result == "")
+           result = "0.0";
     ui->result_screen->setText(result);
+}
+
+void MainWindow::addDot()
+{
+    if(!ui->result_screen->text().contains("."))
+    {
+        ui->result_screen->setText(ui->result_screen->text()+".");
+    }
 }
 MainWindow::~MainWindow()
 {

@@ -25,6 +25,7 @@ private slots:
     void squareX();
     void squareRoot();
     void deleteDigit();
+    void addDot();
 
 private:
     Ui::MainWindow *ui;
