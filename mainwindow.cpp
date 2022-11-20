@@ -4,10 +4,10 @@
 #include <QDebug>
 using namespace std;
 
-double result = 0 ;
-long long first = 0  , second = 0 ;
+double first = 0  , second = 0 ;
 QString operationChecked ;
 bool minus = false ;
+bool b = false ;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -15,6 +15,12 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
+    ui->pushButton_history->setIcon(QIcon(":/images/icons8-history-48.png"));
+    ui->pushButton_history->setIconSize(QSize(40,40));
+    ui->pushButton_delete->setIcon(QIcon(":/images/icons8-clear-symbol-96.png"));
+    ui->pushButton_squareRoot->setIcon(QIcon(":/images/icons8-square-root-64.png"));
+    ui->pushButton_squareRoot->setIconSize(QSize(30,30));
+    ui->pushButton_square->setIcon(QIcon(":/images/icons8-square-number-96 (1).png"));
     //number buttons
 
     connect(ui->pushButton_0 , SIGNAL(clicked()) , this , SLOT(setNumber()));
@@ -55,23 +61,32 @@ MainWindow::MainWindow(QWidget *parent)
     // x*x
 
     connect(ui->pushButton_square , SIGNAL(clicked()) , this , SLOT(squareX()));
+
+    //square root
+
+    connect(ui->pushButton_squareRoot , SIGNAL(clicked()) , this , SLOT(squareRoot()));
+
+    // delete
+
+    connect(ui->pushButton_delete , SIGNAL(clicked()) , this , SLOT(deleteDigit()));
 }
 
 void MainWindow::setNumber()
 {
     QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
-    int num = buttonSender->text().right(1).toInt();
-    result*=10;
-    result+=num;
-    ui->result_screen->setText(QString::number(result));
+    QString num = buttonSender->text().right(1);
+    QString finalNumber = ui->result_screen->text()+num;
+    if(ui->result_screen->text() == '0' || ui->result_screen->text()=="0.0")
+            ui->result_screen->setText(num);
+    else
+        ui->result_screen->setText(finalNumber);
 }
 
 void MainWindow::setOperation()
 {
-    first = result ;
+    first = ui->result_screen->text().toInt();
     QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
     operationChecked = buttonSender->text();
-    result = 0;
     ui->result_screen->setText("");
 }
 
@@ -79,7 +94,7 @@ void MainWindow::findResult()
 {
     double finalAnswer;
 
-    second = result ;
+    second = ui->result_screen->text().toInt() ;
     if(operationChecked=="+")
         finalAnswer = first + second;
     else if (operationChecked == "-")
@@ -89,31 +104,52 @@ void MainWindow::findResult()
     else
         finalAnswer = first * 1.00 / second ;
     ui->result_screen->setText(QString::number(finalAnswer));
+
+//    ui->treeView->setHidden(b);
+//    b=!b;
 }
 
 void MainWindow::clearScreen()
 {
     ui->result_screen->setText("0.0");
-    first = second = result = 0 ;
+    first = second = 0 ;
     operationChecked = "";
 }
 
 void MainWindow::changeSign()
 {
-    result*=-1;
-    ui->result_screen->setText(QString::number(result));
+    double number = ui->result_screen->text().toDouble();
+    number*=-1;
+    ui->result_screen->setText(QString::number(number));
 }
 
 void MainWindow::oneOverX()
 {
-    result = 1.0000/result;
+    double result = 1.0000/ui->result_screen->text().toDouble();
     ui->result_screen->setText(QString::number(result));
 }
 
 void MainWindow::squareX()
 {
-    result *= result ;
+    double result = ui->result_screen->text().toDouble();
+    result*=result ;
     ui->result_screen->setText(QString::number(result));
+}
+
+void MainWindow::squareRoot()
+{
+    double result = pow( ui->result_screen->text().toDouble() , 0.5);
+    ui->result_screen->setText(QString::number(result));
+}
+
+void MainWindow::deleteDigit()
+{
+    QString result = ui->result_screen->text();
+    result.chop(1);
+    QString isDot = result.right(1);
+    if(isDot==".")
+        result.chop(1);
+    ui->result_screen->setText(result);
 }
 MainWindow::~MainWindow()
 {

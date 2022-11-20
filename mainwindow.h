@@ -23,6 +23,8 @@ private slots:
     void changeSign();
     void oneOverX();
     void squareX();
+    void squareRoot();
+    void deleteDigit();
 
 private:
     Ui::MainWindow *ui;
