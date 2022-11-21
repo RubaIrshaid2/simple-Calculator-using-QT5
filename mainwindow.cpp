@@ -80,13 +80,16 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::setNumber()
 {
-    QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
-    QString num = buttonSender->text().right(1);
-    QString finalNumber = ui->result_screen->text()+num;
-    if(ui->result_screen->text() == '0' || ui->result_screen->text()=="0.0")
-            ui->result_screen->setText(num);
-    else
-        ui->result_screen->setText(finalNumber);
+    if(ui->result_screen->text().size()<=15)
+    {
+        QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
+        QString num = buttonSender->text().right(1);
+        QString finalNumber = ui->result_screen->text()+num;
+        if(ui->result_screen->text() == '0' || ui->result_screen->text()=="0.0")
+                ui->result_screen->setText(num);
+        else
+            ui->result_screen->setText(finalNumber);
+    }
 }
 
 void MainWindow::setOperation()
@@ -139,9 +142,12 @@ void MainWindow::oneOverX()
 
 void MainWindow::squareX()
 {
-    double result = ui->result_screen->text().toDouble();
-    result*=result ;
-    ui->result_screen->setText(QString::number(result));
+    if(ui->result_screen->text()<=6)
+    {
+        double result = ui->result_screen->text().toDouble();
+        result*=result ;
+        ui->result_screen->setText(QString::number(result));
+    }
 }
 
 void MainWindow::squareRoot()

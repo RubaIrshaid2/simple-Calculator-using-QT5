@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>403</width>
-    <height>743</height>
+    <width>951</width>
+    <height>704</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -91,8 +91,8 @@ font: 34pt &quot;Segoe UI&quot;;</string>
      <rect>
       <x>10</x>
       <y>160</y>
-      <width>383</width>
-      <height>492</height>
+      <width>391</width>
+      <height>441</height>
      </rect>
     </property>
     <layout class="QGridLayout" name="gridLayout">
@@ -559,7 +559,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>658</y>
+      <y>608</y>
       <width>191</width>
       <height>61</height>
      </rect>
@@ -576,8 +576,8 @@ background-color:  rgb(39, 255, 28);</string>
     <property name="geometry">
      <rect>
       <x>210</x>
-      <y>660</y>
-      <width>181</width>
+      <y>610</y>
+      <width>191</width>
       <height>61</height>
      </rect>
     </property>
