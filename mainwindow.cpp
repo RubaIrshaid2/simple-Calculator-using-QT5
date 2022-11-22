@@ -142,7 +142,7 @@ void MainWindow::oneOverX()
 
 void MainWindow::squareX()
 {
-    if(ui->result_screen->text()<=6)
+    if(ui->result_screen->text().size()<=6)
     {
         double result = ui->result_screen->text().toDouble();
         result*=result ;
