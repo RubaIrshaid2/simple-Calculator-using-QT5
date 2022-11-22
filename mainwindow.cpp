@@ -80,7 +80,7 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::setNumber()
 {
-    if(ui->result_screen->text().size()<=15)
+    if(ui->result_screen->text().size() <= 15)
     {
         QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
         QString num = buttonSender->text().right(1);
