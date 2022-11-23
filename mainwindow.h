@@ -28,6 +28,7 @@ private slots:
     void addDot();
     void binaryRep();
     void equal();
+    void percentage();
 
 private:
     Ui::MainWindow *ui;

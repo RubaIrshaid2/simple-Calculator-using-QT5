@@ -77,6 +77,10 @@ MainWindow::MainWindow(QWidget *parent)
     //binary
 
     connect(ui->pushButton_binary , SIGNAL(clicked()) , this , SLOT(binaryRep()));
+
+    //percentage
+
+    connect(ui->pushButton_per , SIGNAL(clicked()) , this , SLOT(percentage()));
 }
 
 void MainWindow::setNumber()
@@ -201,6 +205,11 @@ void MainWindow::binaryRep()
     ui->label_3->setText(QString::number(ui->result_screen->text().toInt(),2));
 }
 
+void MainWindow::percentage()
+{
+    double result = ui->result_screen->text().toDouble()*1.000/100;
+    ui->result_screen->setText(QString::number(result));
+}
 MainWindow::~MainWindow()
 {
     delete ui;
