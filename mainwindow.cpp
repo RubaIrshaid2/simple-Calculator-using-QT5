@@ -151,7 +151,8 @@ void MainWindow::oneOverX()
 
 void MainWindow::squareX()
 {
-    if(ui->result_screen->text().size()<=6)
+    int DotIndex = ui->result_screen->text().indexOf(".");
+    if(ui->result_screen->text().size()<=6 || (DotIndex<=6 && DotIndex>=0))
     {
         double result = ui->result_screen->text().toDouble();
         result*=result ;
