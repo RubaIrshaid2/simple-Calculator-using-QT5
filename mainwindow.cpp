@@ -5,8 +5,9 @@
 using namespace std;
 
 double first = 0  , second = 0 ;
-QString operationChecked ;
-bool boolDot = false ;
+QString operationChecked = "+";
+bool boolDot = false ,m_FirstOperation = false , m_newNum = false;
+
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -80,6 +81,11 @@ MainWindow::MainWindow(QWidget *parent)
 
 void MainWindow::setNumber()
 {
+    if(m_newNum)
+    {
+        ui->result_screen->setText("");
+        m_newNum = false ;
+    }
     if(ui->result_screen->text().size() <= 15)
     {
         QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
@@ -94,10 +100,12 @@ void MainWindow::setNumber()
 
 void MainWindow::setOperation()
 {
+    m_newNum = true;
+    findResult();
     first = ui->result_screen->text().toDouble();
     QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
     operationChecked = buttonSender->text();
-    ui->result_screen->setText("");
+
 }
 
 void MainWindow::findResult()
@@ -113,7 +121,8 @@ void MainWindow::findResult()
         finalAnswer = first * second ;
     else
         finalAnswer = first * 1.00 / second ;
-    cout<<first<<" "<<second<<endl;
+    cout<<first<<" "<<second<<" "<<finalAnswer<<endl;
+    qDebug() << operationChecked;
     ui->result_screen->setText(QString::number(finalAnswer));
 
 //    ui->treeView->setHidden(b);
