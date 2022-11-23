@@ -27,6 +27,7 @@ private slots:
     void deleteDigit();
     void addDot();
     void binaryRep();
+    void equal();
 
 private:
     Ui::MainWindow *ui;

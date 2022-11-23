@@ -6,7 +6,7 @@ using namespace std;
 
 double first = 0  , second = 0 ;
 QString operationChecked = "+";
-bool boolDot = false ,m_FirstOperation = false , m_newNum = false;
+bool m_FirstOperation = false , m_newNum = false;
 
 
 MainWindow::MainWindow(QWidget *parent)
@@ -43,7 +43,7 @@ MainWindow::MainWindow(QWidget *parent)
 
     //equal
 
-    connect(ui->pushButton_equal , SIGNAL(clicked()) , this , SLOT(findResult()));
+    connect(ui->pushButton_equal , SIGNAL(clicked()) , this , SLOT(equal()));
 
     //clear
 
@@ -105,7 +105,7 @@ void MainWindow::setOperation()
     first = ui->result_screen->text().toDouble();
     QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
     operationChecked = buttonSender->text();
-
+    cout<<first<<" st "<<second<<endl;
 }
 
 void MainWindow::findResult()
@@ -129,11 +129,19 @@ void MainWindow::findResult()
 //    b=!b;
 }
 
+void MainWindow::equal()
+{
+    findResult();
+    first = 0 ;
+    operationChecked = "+";
+    cout<<first<<" eq "<<second<<endl;
+}
+
 void MainWindow::clearScreen()
 {
     ui->result_screen->setText("0.0");
     first = second = 0 ;
-    operationChecked = "";
+    operationChecked = "+";
 }
 
 void MainWindow::changeSign()
@@ -171,11 +179,10 @@ void MainWindow::deleteDigit()
     QString result = ui->result_screen->text();
     result.chop(1);
     QString isDot = result.right(1);
-    if(isDot==".")
-    {
+
+    if(isDot=="." || isDot=="-")
         result.chop(1);
-        boolDot = false ;
-    }
+
     if(result == "")
            result = "0.0";
     ui->result_screen->setText(result);
@@ -193,6 +200,7 @@ void MainWindow::binaryRep()
 {
     ui->label_3->setText(QString::number(ui->result_screen->text().toInt(),2));
 }
+
 MainWindow::~MainWindow()
 {
     delete ui;
