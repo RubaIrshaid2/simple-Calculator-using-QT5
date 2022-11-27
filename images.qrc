@@ -5,6 +5,7 @@
         <file>icons8-square-root-64.png</file>
         <file>icons8-clear-symbol-96.png</file>
         <file>icons8-square-number-96 (1).png</file>
+        <file>icons8-trash-can-64.png</file>
     </qresource>
     <qresource prefix="/"/>
 </RCC>

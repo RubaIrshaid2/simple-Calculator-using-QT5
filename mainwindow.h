@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QTreeWidget>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -29,6 +30,7 @@ private slots:
     void binaryRep();
     void equal();
     void percentage();
+    void addToHistory(double first , double second , QString operation , double result);
 
 private:
     Ui::MainWindow *ui;

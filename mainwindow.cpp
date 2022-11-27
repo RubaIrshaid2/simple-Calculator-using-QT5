@@ -7,7 +7,7 @@ using namespace std;
 double first = 0  , second = 0 ;
 QString operationChecked = "+";
 bool m_FirstOperation = false , m_newNum = false;
-
+QTreeWidgetItem * root ;
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
@@ -21,6 +21,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->pushButton_squareRoot->setIcon(QIcon(":/images/icons8-square-root-64.png"));
     ui->pushButton_squareRoot->setIconSize(QSize(30,30));
     ui->pushButton_square->setIcon(QIcon(":/images/icons8-square-number-96 (1).png"));
+    ui->pushButton_clearHistory->setIcon(QIcon(":/images/icons8-trash-can-64.png"));
+    ui->pushButton_clearHistory->setIconSize(QSize(40,40));
     //number buttons
 
     connect(ui->pushButton_0 , SIGNAL(clicked()) , this , SLOT(setNumber()));
@@ -81,6 +83,22 @@ MainWindow::MainWindow(QWidget *parent)
     //percentage
 
     connect(ui->pushButton_per , SIGNAL(clicked()) , this , SLOT(percentage()));
+
+    //tree History widget
+
+    ui->treeWidget->setColumnCount(4);
+
+    QStringList labels = {
+        "1'st Number","opertion" , "2'nd Number" , "Result"
+    };
+
+    ui->treeWidget->setHeaderLabels(labels);
+
+    root  = new QTreeWidgetItem(ui->treeWidget);
+    root->setText(0,"History");
+    root->setExpanded(true);
+
+    ui->treeWidget->addTopLevelItem(root);
 }
 
 void MainWindow::setNumber()
@@ -128,6 +146,8 @@ void MainWindow::findResult()
     cout<<first<<" "<<second<<" "<<finalAnswer<<endl;
     qDebug() << operationChecked;
     ui->result_screen->setText(QString::number(finalAnswer));
+
+    addToHistory(first , second , operationChecked , finalAnswer);
 
 //    ui->treeView->setHidden(b);
 //    b=!b;
@@ -210,6 +230,26 @@ void MainWindow::percentage()
     double result = ui->result_screen->text().toDouble()*1.000/100;
     ui->result_screen->setText(QString::number(result));
 }
+
+void MainWindow::addToHistory(double first , double second , QString operation , double result)
+{
+
+    QTreeWidgetItem * child1  = new QTreeWidgetItem();
+    child1->setText(0,QString::number(first));
+    child1->setText(1,operation);
+    child1->setText(2,QString::number(second));
+    child1->setText(3,QString::number(result));
+    root->addChild(child1);
+
+
+//    QTreeWidgetItem * child2  = new QTreeWidgetItem();
+//    root->setText(0,QString::number(first));
+//    root->setText(1,operation);
+//    root->setText(2,QString::number(second));
+//    root->setText(3,QString::number(result));
+//    root->addChild(child2);
+}
+
 MainWindow::~MainWindow()
 {
     delete ui;
