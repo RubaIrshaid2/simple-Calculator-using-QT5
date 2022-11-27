@@ -6,7 +6,7 @@ using namespace std;
 
 double first = 0  , second = 0 ;
 QString operationChecked = "+";
-bool m_FirstOperation = false , m_newNum = false;
+bool m_FirstOperation = true , m_newNum = false;
 QTreeWidgetItem * root ;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -147,7 +147,10 @@ void MainWindow::findResult()
     qDebug() << operationChecked;
     ui->result_screen->setText(QString::number(finalAnswer));
 
-    addToHistory(first , second , operationChecked , finalAnswer);
+    if(!m_FirstOperation)
+        addToHistory(first , second , operationChecked , finalAnswer);
+
+    m_FirstOperation = false;
 
 //    ui->treeView->setHidden(b);
 //    b=!b;
@@ -158,6 +161,7 @@ void MainWindow::equal()
     findResult();
     first = 0 ;
     operationChecked = "+";
+    m_FirstOperation = true;
     cout<<first<<" eq "<<second<<endl;
 }
 
@@ -166,6 +170,7 @@ void MainWindow::clearScreen()
     ui->result_screen->setText("0.0");
     first = second = 0 ;
     operationChecked = "+";
+    m_FirstOperation = true;
 }
 
 void MainWindow::changeSign()
@@ -240,14 +245,6 @@ void MainWindow::addToHistory(double first , double second , QString operation ,
     child1->setText(2,QString::number(second));
     child1->setText(3,QString::number(result));
     root->addChild(child1);
-
-
-//    QTreeWidgetItem * child2  = new QTreeWidgetItem();
-//    root->setText(0,QString::number(first));
-//    root->setText(1,operation);
-//    root->setText(2,QString::number(second));
-//    root->setText(3,QString::number(result));
-//    root->addChild(child2);
 }
 
 MainWindow::~MainWindow()
