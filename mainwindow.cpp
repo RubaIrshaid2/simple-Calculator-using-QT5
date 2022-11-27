@@ -2,11 +2,12 @@
 #include "./ui_mainwindow.h"
 #include <iostream>
 #include <QDebug>
+#include <QSizePolicy>
 using namespace std;
 
 double first = 0  , second = 0 ;
 QString operationChecked = "+";
-bool m_FirstOperation = true , m_newNum = false;
+bool m_FirstOperation = true , m_newNum = false , HistoryVisible = false;
 QTreeWidgetItem * root ;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -16,7 +17,7 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     ui->pushButton_history->setIcon(QIcon(":/images/icons8-history-48.png"));
-    ui->pushButton_history->setIconSize(QSize(40,40));
+    ui->pushButton_history->setIconSize(QSize(35,35));
     ui->pushButton_delete->setIcon(QIcon(":/images/icons8-clear-symbol-96.png"));
     ui->pushButton_squareRoot->setIcon(QIcon(":/images/icons8-square-root-64.png"));
     ui->pushButton_squareRoot->setIconSize(QSize(30,30));
@@ -83,6 +84,10 @@ MainWindow::MainWindow(QWidget *parent)
     //percentage
 
     connect(ui->pushButton_per , SIGNAL(clicked()) , this , SLOT(percentage()));
+
+    //History
+
+    connect(ui->pushButton_history , SIGNAL(clicked()) , this , SLOT(HideShowHistory()));
 
     //tree History widget
 
@@ -151,9 +156,6 @@ void MainWindow::findResult()
         addToHistory(first , second , operationChecked , finalAnswer);
 
     m_FirstOperation = false;
-
-//    ui->treeView->setHidden(b);
-//    b=!b;
 }
 
 void MainWindow::equal()
@@ -245,6 +247,17 @@ void MainWindow::addToHistory(double first , double second , QString operation ,
     child1->setText(2,QString::number(second));
     child1->setText(3,QString::number(result));
     root->addChild(child1);
+}
+
+void MainWindow::HideShowHistory()
+{
+    ui->HistoryRightSide->setVisible(HistoryVisible);
+
+    if(HistoryVisible)
+        MainWindow::resize(900,720);
+    else
+        MainWindow::resize(430 , 720);
+    HistoryVisible = !HistoryVisible;
 }
 
 MainWindow::~MainWindow()
