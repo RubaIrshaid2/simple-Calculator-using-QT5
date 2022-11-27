@@ -32,6 +32,7 @@ private slots:
     void percentage();
     void addToHistory(double first , double second , QString operation , double result);
     void HideShowHistory();
+    void ClearOperationsHistory();
 
 private:
     Ui::MainWindow *ui;

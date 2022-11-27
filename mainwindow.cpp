@@ -7,7 +7,7 @@ using namespace std;
 
 double first = 0  , second = 0 ;
 QString operationChecked = "+";
-bool m_FirstOperation = true , m_newNum = false , HistoryVisible = false;
+bool m_FirstOperation = true , m_newNum = false , HistoryVisible = true;
 QTreeWidgetItem * root ;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -88,6 +88,10 @@ MainWindow::MainWindow(QWidget *parent)
     //History
 
     connect(ui->pushButton_history , SIGNAL(clicked()) , this , SLOT(HideShowHistory()));
+
+    //clear History]
+
+    connect(ui->pushButton_clearHistory , SIGNAL(clicked()) , this , SLOT(ClearOperationsHistory()));
 
     //tree History widget
 
@@ -251,13 +255,17 @@ void MainWindow::addToHistory(double first , double second , QString operation ,
 
 void MainWindow::HideShowHistory()
 {
-    ui->HistoryRightSide->setVisible(HistoryVisible);
-
     if(HistoryVisible)
-        MainWindow::resize(900,720);
+        MainWindow::resize(1100,720);
     else
-        MainWindow::resize(430 , 720);
+        MainWindow::resize(410 , 720);
     HistoryVisible = !HistoryVisible;
+}
+
+void MainWindow::ClearOperationsHistory()
+{
+    for( int i = root->childCount() ; i>=0 ; i--)
+        root->removeChild(root->child(i));
 }
 
 MainWindow::~MainWindow()
