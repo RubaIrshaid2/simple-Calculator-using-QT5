@@ -108,6 +108,8 @@ MainWindow::MainWindow(QWidget *parent)
     root->setExpanded(true);
 
     ui->treeWidget->addTopLevelItem(root);
+
+    ui->treeWidget->setSortingEnabled(true);
 }
 
 void MainWindow::setNumber()
@@ -245,7 +247,7 @@ void MainWindow::percentage()
 void MainWindow::addToHistory(double first , double second , QString operation , double result)
 {
 
-    QTreeWidgetItem * child1  = new QTreeWidgetItem();
+    TreeWidgetItem * child1  = new TreeWidgetItem();
     child1->setText(0,QString::number(first));
     child1->setText(1,operation);
     child1->setText(2,QString::number(second));
@@ -272,3 +274,15 @@ MainWindow::~MainWindow()
 {
     delete ui;
 }
+
+void MainWindow::on_treeWidget_itemClicked(QTreeWidgetItem *item, int column)
+{
+    QString prevOperation = item->text(0) + " " + item->text(1) + " " + item->text(2)+ " = " +
+                            item->text(3);
+    ui->previousOperation->setText(prevOperation);
+    ui->result_screen->setText(item->text(3));
+    first = 0 ;
+    operationChecked = "+";
+    m_FirstOperation = true;
+}
+
