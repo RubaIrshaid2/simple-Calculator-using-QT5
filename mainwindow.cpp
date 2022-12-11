@@ -7,7 +7,7 @@ using namespace std;
 
 double first = 0  , second = 0 ;
 QString operationChecked = "+";
-bool m_FirstOperation = true , m_newNum = false , HistoryVisible = true;
+bool m_FirstOperation = true , m_newNum = true , HistoryVisible = true;
 QTreeWidgetItem * root ;
 
 MainWindow::MainWindow(QWidget *parent)
@@ -124,7 +124,7 @@ void MainWindow::setNumber()
         QPushButton* buttonSender = qobject_cast<QPushButton*>(sender());
         QString num = buttonSender->text().right(1);
         QString finalNumber = ui->result_screen->text()+num;
-        if(ui->result_screen->text() == '0' || ui->result_screen->text()=="0.0")
+        if(ui->result_screen->text() == '0')
                 ui->result_screen->setText(num);
         else
             ui->result_screen->setText(finalNumber);
@@ -175,7 +175,7 @@ void MainWindow::equal()
 
 void MainWindow::clearScreen()
 {
-    ui->result_screen->setText("0.0");
+    ui->result_screen->setText("0");
     first = second = 0 ;
     operationChecked = "+";
     m_FirstOperation = true;
@@ -221,7 +221,7 @@ void MainWindow::deleteDigit()
         result.chop(1);
 
     if(result == "")
-           result = "0.0";
+           result = "0";
     ui->result_screen->setText(result);
 }
 
