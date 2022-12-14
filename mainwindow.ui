@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>423</width>
+    <width>1100</width>
     <height>730</height>
    </rect>
   </property>
@@ -160,7 +160,7 @@ font: 700 14pt &quot;Segoe UI&quot;;</string>
      </item>
     </layout>
    </widget>
-   <widget class="QWidget" name="">
+   <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>

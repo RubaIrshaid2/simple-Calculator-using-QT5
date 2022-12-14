@@ -19,7 +19,12 @@ set(PROJECT_SOURCES
         mainwindow.cpp
         mainwindow.h
         mainwindow.ui
+        calculatorwithhistory.cpp
         images.qrc
+        calculatorwithhistory.h
+        TreeWidgetItem.h
+        TreeWidgetItem.cpp
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

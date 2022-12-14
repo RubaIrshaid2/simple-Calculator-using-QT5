@@ -1,3 +1,4 @@
+#include "calculatorwithhistory.h"
 #include "mainwindow.h"
 
 #include <QApplication>
